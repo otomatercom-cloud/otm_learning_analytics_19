@@ -15,6 +15,8 @@
         'views/curriculum_views.xml',
         'views/topic_progress_views.xml',
         'views/assessment_views.xml',
+        'views/mentor_views.xml',
+        'views/study_plan_views.xml',
         'views/student_details_views.xml',
         'views/menus.xml',
     ],

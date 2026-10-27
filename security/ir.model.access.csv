@@ -17,3 +17,12 @@ access_otm_learning_quiz_attempt_manager,otm.learning.quiz.attempt manager,model
 access_otm_learning_quiz_attempt_user,otm.learning.quiz.attempt user,model_otm_learning_quiz_attempt,group_la_user,1,1,1,0
 access_otm_learning_quiz_attempt_answer_manager,otm.learning.quiz.attempt.answer manager,model_otm_learning_quiz_attempt_answer,group_la_manager,1,1,1,1
 access_otm_learning_quiz_attempt_answer_user,otm.learning.quiz.attempt.answer user,model_otm_learning_quiz_attempt_answer,group_la_user,1,1,1,0
+access_otm_student_mentor_manager,otm.student.mentor manager,model_otm_student_mentor,group_la_manager,1,1,1,1
+access_otm_student_mentor_mentor,otm.student.mentor mentor,model_otm_student_mentor,group_la_mentor,1,0,0,0
+access_otm_student_mentor_user,otm.student.mentor user,model_otm_student_mentor,group_la_user,1,0,0,0
+access_otm_student_study_plan_manager,otm.student.study.plan manager,model_otm_student_study_plan,group_la_manager,1,1,1,1
+access_otm_student_study_plan_mentor,otm.student.study.plan mentor,model_otm_student_study_plan,group_la_mentor,1,1,1,0
+access_otm_student_study_plan_user,otm.student.study.plan user,model_otm_student_study_plan,group_la_user,1,1,1,0
+access_otm_student_study_task_manager,otm.student.study.task manager,model_otm_student_study_task,group_la_manager,1,1,1,1
+access_otm_student_study_task_mentor,otm.student.study.task mentor,model_otm_student_study_task,group_la_mentor,1,1,1,0
+access_otm_student_study_task_user,otm.student.study.task user,model_otm_student_study_task,group_la_user,1,1,1,0

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_otm_student_study_plan_list" model="ir.ui.view">
+        <field name="name">otm.student.study.plan.list</field>
+        <field name="model">otm.student.study.plan</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="student_id"/>
+                <field name="plan_date"/>
+                <field name="is_revision_plan"/>
+                <field name="task_count"/>
+                <field name="total_hours"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_student_study_plan_form" model="ir.ui.view">
+        <field name="name">otm.student.study.plan.form</field>
+        <field name="model">otm.student.study.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_tasks" type="object"
+                            string="(Re)Generate Tasks" class="btn-secondary"/>
+                    <button name="action_submit_for_review" type="object"
+                            string="Submit for Review" class="btn-primary"
+                            invisible="state not in ('draft', 'assigned', 'in_progress')"/>
+                    <button name="action_mark_reviewed" type="object"
+                            string="Mark Reviewed" class="btn-primary"
+                            invisible="state != 'completed'"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            invisible="state != 'reviewed'"/>
+                    <button name="action_request_revision" type="object"
+                            string="Request Revision"
+                            invisible="state != 'reviewed'"/>
+                    <button name="action_open_assessment" type="object"
+                            string="Open Assessment" class="btn-primary"
+                            invisible="state != 'approved'"/>
+                    <button name="action_mark_finished" type="object"
+                            string="Mark Finished"
+                            invisible="state != 'assessment_open'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="plan_date"/>
+                            <field name="is_revision_plan"/>
+                            <field name="assessment_quiz_id"/>
+                        </group>
+                        <group>
+                            <field name="mentor_remarks"/>
+                            <field name="mentor_rating"/>
+                            <field name="reviewed_by" readonly="1"/>
+                            <field name="reviewed_date" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tasks">
+                            <field name="task_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="topic_id"/>
+                                    <field name="activity"/>
+                                    <field name="duration_hours"/>
+                                    <field name="priority_score" readonly="1"/>
+                                    <field name="done"/>
+                                    <field name="time_spent"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_student_study_plan" model="ir.actions.act_window">
+        <field name="name">Study Plans</field>
+        <field name="res_model">otm.student.study.plan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

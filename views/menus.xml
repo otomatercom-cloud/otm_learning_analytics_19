@@ -40,4 +40,16 @@
               parent="menu_la_assessment"
               action="action_otm_learning_quiz_attempt" sequence="30"/>
 
+    <menuitem id="menu_la_mentoring" name="Mentoring"
+              parent="menu_learning_analytics_root" sequence="40"/>
+
+    <menuitem id="menu_la_mentor" name="Mentors"
+              parent="menu_la_mentoring"
+              action="action_otm_student_mentor" sequence="10"
+              groups="group_la_manager"/>
+
+    <menuitem id="menu_la_study_plan" name="Study Plans"
+              parent="menu_la_mentoring"
+              action="action_otm_student_study_plan" sequence="20"/>
+
 </odoo>

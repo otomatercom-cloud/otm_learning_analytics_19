@@ -173,6 +173,10 @@ class OtmLearningQuizAttempt(models.Model):
                 continue
             rec.answer_ids._auto_grade()
             rec.write({'state': 'graded', 'end_datetime': fields.Datetime.now()})
+            # Feed the result back to whichever study plan opened this quiz
+            # (Phase 2b) — looked up dynamically via env so this module's
+            # assessment engine stays independent of the study-plan model.
+            self.env['otm.student.study.plan']._handle_quiz_result(rec)
         return True
 
 

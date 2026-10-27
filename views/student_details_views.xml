@@ -10,8 +10,11 @@
                 <group string="Learning Analytics" name="learning_analytics_card">
                     <group>
                         <field name="learning_score"/>
+                        <field name="risk_level"/>
                         <field name="weak_topic_count"/>
                         <field name="mastered_topic_count"/>
+                        <field name="mentor_id"/>
+                        <field name="daily_study_hours"/>
                     </group>
                     <group>
                         <field name="score_completion"/>
