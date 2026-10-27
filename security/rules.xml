@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Placeholder for Phase 2+: mentor/portal/API record rules will be added
+         once student.mentor and the bearer-token API land. No portal or
+         student-facing access exists yet in Phase 1 (internal groups only). -->
+</odoo>

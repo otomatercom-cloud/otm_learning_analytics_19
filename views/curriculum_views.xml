@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Subject -->
+    <record id="view_otm_learning_subject_list" model="ir.ui.view">
+        <field name="name">otm.learning.subject.list</field>
+        <field name="model">otm.learning.subject</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="course_id"/>
+                <field name="chapter_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_subject_form" model="ir.ui.view">
+        <field name="name">otm.learning.subject.form</field>
+        <field name="model">otm.learning.subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="course_id"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                        <field name="chapter_count"/>
+                    </group>
+                    <notebook>
+                        <page string="Chapters">
+                            <field name="chapter_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="topic_count"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_subject" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="res_model">otm.learning.subject</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Chapter -->
+    <record id="view_otm_learning_chapter_list" model="ir.ui.view">
+        <field name="name">otm.learning.chapter.list</field>
+        <field name="model">otm.learning.chapter</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="subject_id"/>
+                <field name="name"/>
+                <field name="topic_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_chapter_form" model="ir.ui.view">
+        <field name="name">otm.learning.chapter.form</field>
+        <field name="model">otm.learning.chapter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="subject_id"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Topics">
+                            <field name="topic_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="difficulty"/>
+                                    <field name="priority"/>
+                                    <field name="weightage"/>
+                                    <field name="estimated_study_time"/>
+                                    <field name="revision_frequency"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_chapter" model="ir.actions.act_window">
+        <field name="name">Chapters</field>
+        <field name="res_model">otm.learning.chapter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Topic -->
+    <record id="view_otm_learning_topic_list" model="ir.ui.view">
+        <field name="name">otm.learning.topic.list</field>
+        <field name="model">otm.learning.topic</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="subject_id"/>
+                <field name="chapter_id"/>
+                <field name="name"/>
+                <field name="difficulty"/>
+                <field name="priority"/>
+                <field name="weightage"/>
+                <field name="revision_frequency"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_topic_form" model="ir.ui.view">
+        <field name="name">otm.learning.topic.form</field>
+        <field name="model">otm.learning.topic</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="chapter_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="difficulty"/>
+                            <field name="priority"/>
+                            <field name="weightage"/>
+                            <field name="estimated_study_time"/>
+                            <field name="revision_frequency"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_topic" model="ir.actions.act_window">
+        <field name="name">Topics</field>
+        <field name="res_model">otm.learning.topic</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

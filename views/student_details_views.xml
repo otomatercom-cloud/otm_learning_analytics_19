@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_student_details_form_inherit_learning_analytics" model="ir.ui.view">
+        <field name="name">student.details.form.inherit.learning.analytics</field>
+        <field name="model">student.details</field>
+        <field name="inherit_id" ref="student_details_19.view_student_form_v2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='profile_card']" position="after">
+                <group string="Learning Analytics" name="learning_analytics_card">
+                    <group>
+                        <field name="learning_score"/>
+                        <field name="weak_topic_count"/>
+                        <field name="mastered_topic_count"/>
+                    </group>
+                    <group>
+                        <field name="score_completion"/>
+                        <field name="score_attendance"/>
+                        <field name="score_practice"/>
+                        <field name="score_test_marks"/>
+                        <field name="score_revision"/>
+                        <field name="score_consistency"/>
+                    </group>
+                    <button name="action_view_topic_progress" type="object"
+                            string="View Topic Progress" class="btn-link"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_learning_analytics_root" name="Learning Analytics"
+              sequence="35" groups="group_la_user"/>
+
+    <menuitem id="menu_la_progress" name="Topic Progress"
+              parent="menu_learning_analytics_root"
+              action="action_otm_student_topic_progress" sequence="10"/>
+
+    <menuitem id="menu_la_curriculum" name="Curriculum"
+              parent="menu_learning_analytics_root" sequence="20"
+              groups="group_la_manager"/>
+
+    <menuitem id="menu_la_subjects" name="Subjects"
+              parent="menu_la_curriculum"
+              action="action_otm_learning_subject" sequence="10"/>
+
+    <menuitem id="menu_la_chapters" name="Chapters"
+              parent="menu_la_curriculum"
+              action="action_otm_learning_chapter" sequence="20"/>
+
+    <menuitem id="menu_la_topics" name="Topics"
+              parent="menu_la_curriculum"
+              action="action_otm_learning_topic" sequence="30"/>
+
+</odoo>

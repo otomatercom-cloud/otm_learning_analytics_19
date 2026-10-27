@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_otm_student_topic_progress_list" model="ir.ui.view">
+        <field name="name">otm.student.topic.progress.list</field>
+        <field name="model">otm.student.topic.progress</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="is_weak_area" decoration-success="status == 'mastered'">
+                <field name="student_id"/>
+                <field name="subject_id"/>
+                <field name="chapter_id"/>
+                <field name="topic_id"/>
+                <field name="status"/>
+                <field name="completion_percentage"/>
+                <field name="practice_accuracy"/>
+                <field name="confidence_level"/>
+                <field name="next_revision_date"/>
+                <field name="is_revision_due"/>
+                <field name="weakness_score"/>
+                <field name="is_weak_area" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_student_topic_progress_kanban" model="ir.ui.view">
+        <field name="name">otm.student.topic.progress.kanban</field>
+        <field name="model">otm.student.topic.progress</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <strong><field name="topic_id"/></strong>
+                            <div><field name="student_id"/></div>
+                            <div>
+                                <field name="completion_percentage"/>% ·
+                                <field name="confidence_level"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_otm_student_topic_progress_form" model="ir.ui.view">
+        <field name="name">otm.student.topic.progress.form</field>
+        <field name="model">otm.student.topic.progress</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_studied_today" type="object"
+                            string="Mark Studied Today" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="topic_id"/>
+                            <field name="status"/>
+                            <field name="completion_percentage"/>
+                            <field name="practice_accuracy"/>
+                        </group>
+                        <group>
+                            <field name="confidence_level"/>
+                            <field name="student_self_rating"/>
+                            <field name="faculty_rating"/>
+                            <field name="last_activity_date"/>
+                            <field name="next_revision_date"/>
+                            <field name="is_revision_due"/>
+                            <field name="weakness_score"/>
+                            <field name="is_weak_area"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_student_topic_progress" model="ir.actions.act_window">
+        <field name="name">Student Topic Progress</field>
+        <field name="res_model">otm.student.topic.progress</field>
+        <field name="view_mode">list,kanban,form</field>
+    </record>
+
+</odoo>

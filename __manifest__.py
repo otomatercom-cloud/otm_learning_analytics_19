@@ -1,0 +1,23 @@
+{
+    'name': 'Otomater Learning Analytics',
+    'version': '19.0.1.0.0',
+    'summary': 'AI-driven student learning analytics, assessment engine and mentor workflow (native, Moodle-free)',
+    'sequence': 10,
+    'category': 'Education',
+    'author': 'Otomater',
+    'website': 'https://otomater.com',
+    'license': 'OPL-1',
+    'depends': ['base', 'mail', 'portal', 'student_details_19'],
+    'data': [
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+        'security/rules.xml',
+        'views/curriculum_views.xml',
+        'views/topic_progress_views.xml',
+        'views/student_details_views.xml',
+        'views/menus.xml',
+    ],
+    'assets': {},
+    'installable': True,
+    'application': True,
+}

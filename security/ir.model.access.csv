@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_otm_learning_subject_manager,otm.learning.subject manager,model_otm_learning_subject,group_la_manager,1,1,1,1
+access_otm_learning_subject_user,otm.learning.subject user,model_otm_learning_subject,group_la_user,1,0,0,0
+access_otm_learning_chapter_manager,otm.learning.chapter manager,model_otm_learning_chapter,group_la_manager,1,1,1,1
+access_otm_learning_chapter_user,otm.learning.chapter user,model_otm_learning_chapter,group_la_user,1,0,0,0
+access_otm_learning_topic_manager,otm.learning.topic manager,model_otm_learning_topic,group_la_manager,1,1,1,1
+access_otm_learning_topic_user,otm.learning.topic user,model_otm_learning_topic,group_la_user,1,0,0,0
+access_otm_student_topic_progress_manager,otm.student.topic.progress manager,model_otm_student_topic_progress,group_la_manager,1,1,1,1
+access_otm_student_topic_progress_user,otm.student.topic.progress user,model_otm_student_topic_progress,group_la_user,1,1,1,0
