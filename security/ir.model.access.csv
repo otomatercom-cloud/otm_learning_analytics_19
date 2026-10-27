@@ -7,3 +7,13 @@ access_otm_learning_topic_manager,otm.learning.topic manager,model_otm_learning_
 access_otm_learning_topic_user,otm.learning.topic user,model_otm_learning_topic,group_la_user,1,0,0,0
 access_otm_student_topic_progress_manager,otm.student.topic.progress manager,model_otm_student_topic_progress,group_la_manager,1,1,1,1
 access_otm_student_topic_progress_user,otm.student.topic.progress user,model_otm_student_topic_progress,group_la_user,1,1,1,0
+access_otm_learning_question_manager,otm.learning.question manager,model_otm_learning_question,group_la_manager,1,1,1,1
+access_otm_learning_question_user,otm.learning.question user,model_otm_learning_question,group_la_user,1,0,0,0
+access_otm_learning_question_option_manager,otm.learning.question.option manager,model_otm_learning_question_option,group_la_manager,1,1,1,1
+access_otm_learning_question_option_user,otm.learning.question.option user,model_otm_learning_question_option,group_la_user,1,0,0,0
+access_otm_learning_quiz_manager,otm.learning.quiz manager,model_otm_learning_quiz,group_la_manager,1,1,1,1
+access_otm_learning_quiz_user,otm.learning.quiz user,model_otm_learning_quiz,group_la_user,1,0,0,0
+access_otm_learning_quiz_attempt_manager,otm.learning.quiz.attempt manager,model_otm_learning_quiz_attempt,group_la_manager,1,1,1,1
+access_otm_learning_quiz_attempt_user,otm.learning.quiz.attempt user,model_otm_learning_quiz_attempt,group_la_user,1,1,1,0
+access_otm_learning_quiz_attempt_answer_manager,otm.learning.quiz.attempt.answer manager,model_otm_learning_quiz_attempt_answer,group_la_manager,1,1,1,1
+access_otm_learning_quiz_attempt_answer_user,otm.learning.quiz.attempt.answer user,model_otm_learning_quiz_attempt_answer,group_la_user,1,1,1,0

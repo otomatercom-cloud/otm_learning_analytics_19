@@ -24,4 +24,20 @@
               parent="menu_la_curriculum"
               action="action_otm_learning_topic" sequence="30"/>
 
+    <menuitem id="menu_la_assessment" name="Assessment"
+              parent="menu_learning_analytics_root" sequence="30"/>
+
+    <menuitem id="menu_la_question_bank" name="Question Bank"
+              parent="menu_la_assessment"
+              action="action_otm_learning_question" sequence="10"
+              groups="group_la_manager"/>
+
+    <menuitem id="menu_la_quiz" name="Quizzes"
+              parent="menu_la_assessment"
+              action="action_otm_learning_quiz" sequence="20"/>
+
+    <menuitem id="menu_la_quiz_attempt" name="Attempts"
+              parent="menu_la_assessment"
+              action="action_otm_learning_quiz_attempt" sequence="30"/>
+
 </odoo>

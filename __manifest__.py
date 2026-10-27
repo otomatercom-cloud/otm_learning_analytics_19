@@ -14,6 +14,7 @@
         'security/rules.xml',
         'views/curriculum_views.xml',
         'views/topic_progress_views.xml',
+        'views/assessment_views.xml',
         'views/student_details_views.xml',
         'views/menus.xml',
     ],

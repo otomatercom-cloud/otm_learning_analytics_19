@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Question -->
+    <record id="view_otm_learning_question_list" model="ir.ui.view">
+        <field name="name">otm.learning.question.list</field>
+        <field name="model">otm.learning.question</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="topic_id"/>
+                <field name="name"/>
+                <field name="question_type"/>
+                <field name="difficulty"/>
+                <field name="marks"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_question_form" model="ir.ui.view">
+        <field name="name">otm.learning.question.form</field>
+        <field name="model">otm.learning.question</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_set_true_false_options" type="object"
+                            string="Reset as True/False" class="btn-secondary"
+                            invisible="question_type != 'true_false'"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="topic_id"/>
+                        <field name="question_type"/>
+                        <field name="difficulty"/>
+                        <field name="marks"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Options">
+                            <field name="option_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="is_correct"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_question" model="ir.actions.act_window">
+        <field name="name">Question Bank</field>
+        <field name="res_model">otm.learning.question</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Quiz -->
+    <record id="view_otm_learning_quiz_list" model="ir.ui.view">
+        <field name="name">otm.learning.quiz.list</field>
+        <field name="model">otm.learning.quiz</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="topic_id"/>
+                <field name="batch_id"/>
+                <field name="question_count"/>
+                <field name="total_marks"/>
+                <field name="state"/>
+                <field name="is_locked"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_quiz_form" model="ir.ui.view">
+        <field name="name">otm.learning.quiz.form</field>
+        <field name="model">otm.learning.quiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_activate" type="object" string="Activate"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_lock" type="object" string="Lock"
+                            invisible="is_locked == True"/>
+                    <button name="action_unlock" type="object" string="Unlock"
+                            invisible="is_locked == False"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_attempts" type="object"
+                                class="oe_stat_button" icon="fa-list">
+                            <field name="attempt_count" widget="statbutton" string="Attempts"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="topic_id"/>
+                            <field name="batch_id"/>
+                            <field name="is_locked"/>
+                        </group>
+                        <group>
+                            <field name="duration_minutes"/>
+                            <field name="pass_percentage"/>
+                            <field name="question_count"/>
+                            <field name="total_marks"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Questions">
+                            <field name="question_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="question_type"/>
+                                    <field name="difficulty"/>
+                                    <field name="marks"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_quiz" model="ir.actions.act_window">
+        <field name="name">Quizzes</field>
+        <field name="res_model">otm.learning.quiz</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Attempt -->
+    <record id="view_otm_learning_quiz_attempt_list" model="ir.ui.view">
+        <field name="name">otm.learning.quiz.attempt.list</field>
+        <field name="model">otm.learning.quiz.attempt</field>
+        <field name="arch" type="xml">
+            <list decoration-success="passed" decoration-danger="state == 'graded' and not passed">
+                <field name="quiz_id"/>
+                <field name="student_id"/>
+                <field name="start_datetime"/>
+                <field name="state"/>
+                <field name="marks_obtained"/>
+                <field name="percentage"/>
+                <field name="passed"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otm_learning_quiz_attempt_form" model="ir.ui.view">
+        <field name="name">otm.learning.quiz.attempt.form</field>
+        <field name="model">otm.learning.quiz.attempt</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" type="object" string="Submit &amp; Grade"
+                            class="btn-primary" invisible="state != 'in_progress'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="quiz_id"/>
+                            <field name="student_id"/>
+                            <field name="start_datetime"/>
+                            <field name="end_datetime"/>
+                        </group>
+                        <group>
+                            <field name="marks_obtained"/>
+                            <field name="percentage"/>
+                            <field name="passed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Answers">
+                            <field name="answer_ids">
+                                <list editable="bottom">
+                                    <field name="question_id"/>
+                                    <field name="selected_option_id"
+                                           domain="[('question_id', '=', question_id)]"/>
+                                    <field name="is_correct" readonly="1"/>
+                                    <field name="marks_obtained" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_otm_learning_quiz_attempt" model="ir.actions.act_window">
+        <field name="name">Quiz Attempts</field>
+        <field name="res_model">otm.learning.quiz.attempt</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
